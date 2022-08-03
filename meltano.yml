@@ -1,0 +1,34 @@
+version: 1
+send_anonymous_usage_stats: false
+project_id: tap-lizard
+plugins:
+  extractors:
+  - name: tap-lizard
+    namespace: tap_lizard
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    settings:
+    - name: username
+    - name: password
+      kind: password
+    - name: start_date
+      value: '2010-01-01T00:00:00Z'
+    config:
+      start_date: '2010-01-01T00:00:00Z'
+      username: __key__
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+default_environment: dev
+environments:
+- name: dev
+  config:
+    plugins:
+      extractors:
+      - name: tap-threedi
+        select:
+        - '*.*'
