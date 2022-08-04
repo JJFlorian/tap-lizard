@@ -109,10 +109,6 @@ class LocationsStream(lizardStream):
             th.StringType,
         ),
         th.Property(
-            "location",
-            th.ObjectType(),
-        ),
-        th.Property(
             "created",
             th.DateTimeType,
         ),
