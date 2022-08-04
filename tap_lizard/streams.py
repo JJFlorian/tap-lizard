@@ -229,7 +229,7 @@ class ScenarioStream(lizardStream):
         ),
         th.Property(
             "simulation_identifier",
-            th.IntegerType,
+            th.StringType,
         ),
         th.Property(
             "supplier",
